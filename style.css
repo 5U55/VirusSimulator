@@ -1,0 +1,163 @@
+.button {
+  border: 2px solid black;
+  padding: 4px;
+  cursor: pointer;
+  background-color: #E9E9E9;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  color: black;
+  width: 200px;
+  font-family: monospace;
+  font-weight: bold;
+  margin-right: 20px;
+}
+
+.feilds {
+  padding: 1.2%;
+  display: inline-block;
+  border: 2px solid black;
+  font-family: monospace;
+  font-weight: bold;
+  margin: 4px;
+  font-size: 12px;
+  width: 143px;
+}
+
+.error {
+  color: firebrick;
+  font-weight: bold;
+}
+
+.input {
+  width: 130px;
+}
+
+#graph {
+  width: 80%;
+  border-left: 2px solid black;
+  border-bottom: 2px solid black;
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+  padding: 10px;
+}
+
+#calculations {
+  font-family: monospace;
+  font-weight: bold;
+  display: block;
+}
+
+.key {
+  padding-left: 20px; 
+  margin: 5px;
+}
+
+#key {
+  float: right;
+  margin: 10px;
+  border: 2px solid black;
+  padding: 7px;
+}
+
+.infoPopup {
+  text-decoration: underline dotted;
+  cursor: pointer;
+}
+
+.infoPopup .infoPopupText {
+  display: none;
+  background-color: black;
+  width: 200px;
+  color: #fff;
+  text-align: center;
+  border-radius: 6px;
+  padding: 10px;
+  position: absolute;
+  z-index: 1;
+  opacity: 0.8;
+}
+
+.infoPopup:hover .infoPopupText {
+  display: block;
+}
+
+#keySpacer {
+    display: none;
+  }
+
+ @media only screen and (max-width: 800px;){
+  #keySpacer{
+    display: block;
+  }
+}
+
+body {
+  background-color: snow;
+}
+
+.table {
+  display: inline-block;
+  padding: 10px;
+  border: 2px solid black;
+  font-size: 11px;
+  font-family: monospace;
+}
+
+.tableDays {
+  width: 20px;
+  background-color: #E9E9E9;
+}
+
+.tableInfections {
+  width: 60px;
+  background-color: lightskyblue;
+}
+
+.tableDeaths{
+  width: 45px;
+  background-color: #FF9883;
+}
+
+.tableActive {
+  width: 45px;
+  background-color: #FFDC77;
+}
+
+.summaryTable {
+  width: 310px;
+  background-color: #B3FFDA;
+  font-weight: bold;
+}
+
+#summary {
+  display: none;
+}
+
+.tableImmune {
+  width: 45px;
+  background-color: #B3FFDA;
+}
+
+#title {
+  font-family: monospace;
+  font-weight: bold;
+  display: block;
+  font-size: 35px;
+  margin: 5px;
+}
+
+#covidImg {
+  width: 25px;
+  margin-bottom: -3px;
+}
+
+#clear {
+  margin: 10px;
+}
+
+.bold {
+  font-weight: bold;
+  font-family: monospace;
+  font-size: 16px;
+}
