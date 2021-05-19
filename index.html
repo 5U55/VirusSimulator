@@ -1,0 +1,293 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"
+    />
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-validate/1.19.2/jquery.validate.js"></script>
+    <title>Virus Simulator</title>
+    <link
+      rel="icon"
+      href="https://cdn.glitch.com/8034dd2b-45cb-427c-8c73-86b3b995a6d6%2F1586349622virus.png?v=1591299928890"
+      sizes="16x16"
+      type="image/png"
+    />
+    <!-- import the webpage's stylesheet -->
+    <link rel="stylesheet" href="/style.css" />
+
+    <!-- import the webpage's javascript file -->
+    <script src="/script.js" defer></script>
+  </head>
+  <body onclick>
+    <div id="title">
+     Virus Simulat<img draggable="false" id="covidImg" src="https://cdn.glitch.com/8034dd2b-45cb-427c-8c73-86b3b995a6d6%2F1586349622virus.png?v=1591299928890">r
+    </div> 
+    <form id="fields" action="" method="post" name="fields">
+    <span class="feilds" style="background-color: #40A0FF;">
+      Population:<br />
+      <input
+        type="number"
+        name="population"
+        id="population"
+        class="input"
+        placeholder="Number of people"
+        value="10000"/><br
+    /></span>
+
+    <span class="feilds" style="background-color: #40A0FF;">
+      Initial infections:<br />
+      <input
+        name="initialInfections"
+        type="number"
+        id="initialInfections"
+        class="input"
+        placeholder="Initial infections"
+        value="100"/><br
+    /></span>
+
+    <span class="feilds" style="background-color: #40A0FF;"
+      >Total Days:<br />
+      <input
+        name="days"
+        type="number"
+        class="input"
+        id="days"
+        placeholder="Days"
+        value="150"/><br
+    /></span>
+
+    <span class="feilds" style="background-color: orange;">
+      Rate of Spread
+      <span class="infoPopup"
+        ><i class="fa fa-question-circle-o"></i>
+        <span class="infoPopupText">
+          R<sub>0</sub> (r naught) is the reproductive rate or rate of spread of
+          a virus. The number inputted here is the average number of total
+          people any one patient infects over the period of time they are
+          contagious. This determines how quickly the virus spreads.</span
+        ></span
+      ><br />
+      <input
+        name="r0"
+        type="number"
+        id="r0"
+        class="input"
+        placeholder="Rate of Spread"
+        value="2"/><br
+    /></span>
+
+    <span class="feilds" style="background-color: orange;">
+      Contagious Start
+      <span class="infoPopup"
+        ><i class="fa fa-question-circle-o"></i>
+        <span class="infoPopupText"
+          >The start of the contagious period happens after the incubation
+          period. The contagious start day is the number of days after a person
+          is initially infected that they become contagious and can spread it to
+          other members of the population.</span
+        > </span
+      ><br />
+      <input
+        name="contStart"
+        type="number"
+        class="input"
+        id="contstart"
+        placeholder="Contagious Start"
+        value="3"/><br
+    /></span>
+
+    <span class="feilds" style="background-color: orange;">
+      Contagious End
+      <span class="infoPopup"
+        ><i class="fa fa-question-circle-o"></i>
+        <span class="infoPopupText"
+          >This is the number of days after a person is initially infected that
+          they stop being contagious and are no longer able to spread the
+          disease to other members of the population.</span
+        > </span
+      ><br />
+      <input
+        name="contEnd"
+        type="number"
+        id="contend"
+        class="input"
+        placeholder="Contagious End"
+        value="14"/><br
+    /></span>
+
+    <span class="feilds" style="background-color: springgreen;">
+      Vaccination Rate
+      <span class="infoPopup"
+        ><i class="fa fa-question-circle-o"></i>
+        <span class="infoPopupText"
+          >This is the percentage of the living population that gets vaccinated
+          (or gains immunity to the disease) on the "vaccination day".
+        </span> </span
+      ><br />
+      <input
+        name="vaccRate"
+        type="number"
+        id="vaccRate"
+        class="input"
+        placeholder="Immunity Rate as a %"
+        value="0"/><br
+    /></span>
+
+    <span class="feilds" style="background-color: springgreen;">
+      Vaccination Day
+      <span class="infoPopup"
+        ><i class="fa fa-question-circle-o"></i>
+        <span class="infoPopupText"
+          >This is the number of days after the start of the simulation that the
+          specified percentage of the population gets vaccinated (or gains
+          immunity to the disease).
+        </span> </span
+      ><br />
+      <input
+        name="immuneStart"
+        type="number"
+        id="immuneStart"
+        class="input"
+        placeholder="Start date of Immunity"
+        value="0"/><br
+    /></span>
+    
+    <span class="feilds" style="background-color: springgreen;">
+        Immunity Length
+      <span class="infoPopup"
+        ><i class="fa fa-question-circle-o"></i>
+        <span class="infoPopupText"
+          >This is the ammount of time after a person has either received a vaccination or contracted the disease that they are able to be reinfected with the
+          disease. If you do not want people to be able to be reinfected, leave this field blank. 
+        </span
+        > </span
+      ><br />
+      <input
+        name="immuneLength"
+        type="number"
+        id="immuneLength"
+        class="input"
+        placeholder="Forever"
+        value=""/><br
+    /></span>
+
+    <span class="feilds" style="background-color: tomato;">
+      Fatality Rate
+      <span class="infoPopup"
+        ><i class="fa fa-question-circle-o"></i>
+        <span class="infoPopupText"
+          >Case Fatality Rate (CFR) is the percentage of the population that
+          contracts the virus that will die.</span
+        > </span
+      ><br />
+      <input
+        name="deathRate"
+        type="number"
+        id="death"
+        class="input"
+        placeholder="Death Rate as a %"
+        value="5"/><br
+        /></span>
+    </form>
+    <div class="errorTxt">
+    </div>
+    <div>
+      <br />
+      <span class="button" onclick="submit()"> Calculate </span>
+      <select
+        class="button"
+        id="diseaseSelect"
+        onchange="valueChange(this.value)"
+      >
+      </select>
+      <i class="fa fa-refresh fa-spin" id="loading" style="font-size:24px; display: none;"></i>
+      <!-- <span class="button">Herd Immunity</span>-->
+      <br />
+      click the <i class="fa fa-question-circle-o"></i>'s for more info<br>
+      <input type="checkbox" id="showImmune">Graph Immune
+        <input type="checkbox" id="showActive" checked="true"> Graph Active
+       <span class="button" id="clear" onclick="clearGraph()"> Clear Graph</span>
+      <span id="key">
+        <span class="key" style="background-color: blue;"></span> Total Cases
+        <span class="key" style="background-color: orange;"></span> Active Cases
+        <span class="key" style="background-color: red;"></span> Deaths
+        <span class="key" style="background-color: springgreen;"></span>Immune Population
+      </span>
+    </div>
+
+    <div id="graphDiv">
+      <canvas id="graph" height="300" width="600"></canvas><br />
+    </div>
+
+    <div id="summary">
+      <div class="table summaryTable" style="background-color: #40A0FF;">
+        Total People Infected:<span
+          style="float: right; font-weight: normal;"
+          id="totalPeopleInfections"
+        >
+        </span>
+      </div><br />
+      <div class="table summaryTable" style="background-color: lightskyblue;">
+        Initial Infections:<span
+          style="float: right; font-weight: normal;"
+          id="initialInfectionsSummary"
+        ></span>
+      </div>
+      <br /><div class="table summaryTable" style="background-color: lightskyblue;">
+        Net People Infected:<span
+          style="float: right; font-weight: normal;"
+          id="netPeopleInfectionsSummary"
+        ></span>
+      </div>
+      <br><br>
+      <div class="table summaryTable" style="background-color: orange;">
+        Total Infections:<span
+          style="float: right; font-weight: normal;"
+          id="totalInfections"
+        >
+        </span>
+      </div>
+      <br />
+      <div class="table summaryTable" style="background-color: #FFDC77;">
+        Net Infections:<span
+          style="float: right; font-weight: normal;"
+          id="netInfectionsSummary"
+        ></span>
+      </div>
+      <br /><br>
+      <div class="table summaryTable" style="background-color: springgreen;">
+        Vaccinated Population:
+        <span style="float: right; font-weight: normal;" id="immunePopulation">
+        </span>
+      </div>
+      <br />
+      <div class="table summaryTable">
+        Never Infected:
+        <span style="float: right; font-weight: normal;" id="neverInfected">
+        </span>
+      </div>
+      <br />
+      <div class="table summaryTable">
+        Suceptable Never Infected:<span
+          style="float: right; font-weight: normal;"
+          id="sucepNeverInfected"
+        >
+        </span>
+      </div><br><br>
+      <div class="table summaryTable" style="background-color: tomato;">
+        Total Deaths:<span
+          style="float: right; font-weight: normal;"
+          id="totalDeaths"
+        >
+        </span>
+      </div>
+    </div><br>
+  <br>
+    <div id="calculations"></div>
+  </body>
+</html>
